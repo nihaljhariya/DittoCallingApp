@@ -1,7 +1,7 @@
 .landingPageContainer {
     width: 100vw;
     height: 100vh;
-    background: url("/public/background.png");
+    /* background: url("/public/Frame4.png"); */
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -15,6 +15,11 @@
     align-items: center;
   
   }
+  .LandingButton{
+    color: black !important;
+  
+  }
+
   
   .landingPageContainer nav h2 {
     font-size: 1.8rem;
@@ -41,8 +46,11 @@
   }
   
   .landingMainContainer>div:nth-child(1) div[role='button'] {
-    background: #D97500;
-    width: fit-content;
+    background: #9169c1;
+    width:15rem;
+    text-align: center;
+    
+    height: 6rem;
     padding: 1rem;
     border-radius: 20px;
     margin-top: 1.9rem;

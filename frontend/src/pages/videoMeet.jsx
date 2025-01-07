@@ -10,7 +10,8 @@ import MicIcon from '@mui/icons-material/Mic'
 import MicOffIcon from '@mui/icons-material/MicOff'
 import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import StopScreenShareIcon from '@mui/icons-material/StopScreenShare'
-import ChatIcon from '@mui/icons-material/Chat'
+import ChatIcon from '@mui/icons-material/Chat';
+import Navbar2 from './Navbar2';
 // import server from '../environment';
 
 const server_url = "http://localhost:8000";
@@ -48,7 +49,7 @@ export default function VideoMeetComponent() {
 
     let [message, setMessage] = useState("");
 
-    let [newMessages, setNewMessages] = useState(3);
+    let [newMessages, setNewMessages] = useState();
 
     let [askForUsername, setAskForUsername] = useState(true);
 
@@ -453,16 +454,31 @@ export default function VideoMeetComponent() {
 
             {askForUsername === true ?
 
-                <div>
 
 
-                    <h2>Enter into Lobby </h2>
-                    <TextField id="outlined-basic" label="Username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
-                    <Button variant="contained" onClick={connect}>Connect</Button>
+                 
+                <div >
+<Navbar2/>
+                <div style={{ marginTop:"5rem"}} className='row'>
+                
+                    <div style={{}}  className='col-6 '>
+
+                    <h2 style={{fontSize:"3rem", marginTop:"7rem" , marginLeft:"2rem"}}>Distance No Longer a Barrier </h2>
+                    <h2 style={{fontSize:"1.5rem",  marginLeft:"2.3rem"}}>Connecting with a Touch of a Button</h2>
+                    <TextField style={{marginTop:"1rem" , marginLeft:"2.2rem"}} id="outlined-basic" label="Username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
+                    <Button style={{height:"3rem" , marginTop:"1rem" , marginLeft:"1rem" , backgroundColor:"#9169c1" , color:"white"}} onClick={connect}>Connect</Button>
+                    </div>
+                    <div className='col-6'>
+                    {/* <img style={{width:"40rem"}} src="/logo3.png" alt="" /> */}
+                    <video style={{borderRadius:"20px" ,marginTop:"2rem"}} ref={localVideoref} autoPlay muted></video>
+                    </div>
+
+                </div>
+                   
 
 
                     <div>
-                        <video ref={localVideoref} autoPlay muted></video>
+                       
                     </div>
 
                 </div> :
@@ -473,7 +489,7 @@ export default function VideoMeetComponent() {
                     {showModal ? <div className={styles.chatRoom}>
 
                         <div className={styles.chatContainer}>
-                            <h1 style={{color:"yellow" , textAlign:"center"}}>Chat-box</h1>
+                            <h1 style={{color:"Black" , textAlign:"center"}}>Chat-box</h1>
 
                             <div className={styles.chattingDisplay}>
 
@@ -488,13 +504,13 @@ export default function VideoMeetComponent() {
                                     )
                                 }) : <p>No Messages Yet</p>}
 
-
+ 
                             </div>
 
                             <div className={styles.chattingArea}>
                                 
-                                <TextField style={{backgroundColor:"grey" , opacity:".2" , color:"white"}} value={message} onChange={(e) => setMessage(e.target.value)} id="outlined-basic" label="Enter Your chat" variant="outlined" />
-                                <Button  variant='contained' onClick={sendMessage}>Send</Button>
+                                <TextField style={{backgroundColor:"white"  , color:"white"}} value={message} onChange={(e) => setMessage(e.target.value)} id="outlined-basic" label="Enter Your chat" variant="outlined" />
+                                <Button  style={{height:"3.3rem" , width:"7rem"  , marginLeft:"1rem" , backgroundColor:"#6A0DAD" , color:"white"}} onClick={sendMessage}>Send</Button>
                             </div>
 
 
@@ -503,23 +519,23 @@ export default function VideoMeetComponent() {
 
 
                     <div className={styles.buttonContainers}>
-                        <IconButton onClick={handleVideo} style={{ color: "white" }}>
+                        <IconButton onClick={handleVideo} style={{ color: "black" }}>
                             {(video === true) ? <VideocamIcon /> : <VideocamOffIcon />}
                         </IconButton>
                         <IconButton onClick={handleEndCall} style={{ color: "red" }}>
                             <CallEndIcon  />
                         </IconButton>
-                        <IconButton onClick={handleAudio} style={{ color: "white" }}>
+                        <IconButton onClick={handleAudio} style={{ color: "black" }}>
                             {audio === true ? <MicIcon /> : <MicOffIcon />}
                         </IconButton>
 
                         {screenAvailable === true ?
-                            <IconButton onClick={handleScreen} style={{ color: "white" }}>
+                            <IconButton onClick={handleScreen} style={{ color: "black" }}>
                                 {screen === true ? <ScreenShareIcon /> : <StopScreenShareIcon />}
                             </IconButton> : <></>}
 
                         <Badge badgeContent={newMessages} max={999} color='orange'>
-                            <IconButton onClick={() => setModal(!showModal)} style={{ color: "white" }}>
+                            <IconButton onClick={() => setModal(!showModal)} style={{ color: "black" }}>
                                 <ChatIcon />                        </IconButton>
                         </Badge>
 
@@ -532,7 +548,7 @@ export default function VideoMeetComponent() {
                         {videos.map((video) => (
                             <div key={video.socketId}>
                             {/* <h2>{video.socketId}</h2> */}
-                                <video
+                                <video style={{height:"15rem" , marginLeft:"1rem" , marginTop:"1rem" , borderRadius:"20px"}}
 
                                     data-socket={video.socketId}
                                     ref={ref => {
@@ -540,7 +556,7 @@ export default function VideoMeetComponent() {
                                             ref.srcObject = video.stream;
                                         }
                                     }}
-                                    autoPlay
+                                    autoPlay muted
                                 >
                                 </video>
                             </div>

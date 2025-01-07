@@ -7,6 +7,8 @@ import {AuthProvider} from './contexts/AuthContext'
 import VideoMeetComponent from './pages/videoMeet';
 import History from './pages/History';
 import HomeComponent from './pages/Home';
+import Navbar from './pages/Navbar'
+
 
 
 
@@ -15,6 +17,7 @@ function App() {
     <>
      <Router>
       <AuthProvider>
+  {/* <Navbar/> */}
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/auth' element={<Authentication/>}/>

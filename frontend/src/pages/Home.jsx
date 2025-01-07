@@ -1,12 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
+import { TextField } from '@mui/material';
 import "../App.css";
 import RestoreIcon from '@mui/icons-material/Restore';
 import Button from '@mui/icons-material/Restore';
-import { AuthContext } from '../contexts/AuthContext';
+
 import IconButton from '@mui/material/Button'; 
-import { TextField } from '@mui/material';
+
+import Navbar2 from './Navbar2';
 export default function HomeComponent() {
 
     let navigate = useNavigate();
@@ -20,7 +23,7 @@ export default function HomeComponent() {
 
   return (
     <>
-    <div className="navBar">
+    {/* <div className="navBar">
 
         <div style ={{display:"flex" , alignItems:"center"}}>
            <h1>DittoCalling </h1>
@@ -41,7 +44,8 @@ export default function HomeComponent() {
               
             }} >Logout </Button>
         </div>
-        </div>
+        </div> */}
+        <Navbar2/> 
         <div className="meetContainer">
           <div className="leftPanel">
             <div>
@@ -49,7 +53,7 @@ export default function HomeComponent() {
           <div style={{display:"flex" , gap:"10px"}}>
             <TextField onChange={e=> setMeetingCode(e.target.value)} id="outlined-basic" label="Meeting Code " variant="outlined"/>
             {/* <Button onClick={handleJoinVideoCall} variant="contained" >Join</Button> */}
-            <button  onClick={handleJoinVideoCall } >Join</button>
+            <button style={{height:"3.3rem" , width:"7rem"  , marginLeft:"1rem" , backgroundColor:"#9169c1" , color:"white"}}  onClick={handleJoinVideoCall } >Join</button>
           </div>
         </div>
         </div>
