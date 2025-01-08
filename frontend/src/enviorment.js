@@ -1,3 +1,7 @@
-const servers = {
-    dev : "http://local"
-}
+let IS_PROD = true;
+const server = IS_PROD ?
+"https://dittocallingapp.onrender.com" :
+  "http://localhost:8000"
+
+
+  export default server;

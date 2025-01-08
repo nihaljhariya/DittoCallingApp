@@ -12,9 +12,8 @@ import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import StopScreenShareIcon from '@mui/icons-material/StopScreenShare'
 import ChatIcon from '@mui/icons-material/Chat';
 import Navbar2 from './Navbar2';
-// import server from '../environment';
-
-const server_url = "http://localhost:8000";
+import server from '../enviorment';
+const server_url = server;
 
 var connections = {};
 
