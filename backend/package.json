@@ -6,8 +6,13 @@
   "scripts": {
     "dev": "nodemon src/app.js ",
     "start": "node src/app.js",
-    "prod": "pm2 src/app.js"
+    "prod": "pm2 src/app.js",
+    "build": "npm rebuild bcrypt --build-from-source"
   },
+  "engines": {
+  "node": "18.x"
+},
+
   "author": "Nihal Jhariya",
   "license": "ISC",
   "description": "",
