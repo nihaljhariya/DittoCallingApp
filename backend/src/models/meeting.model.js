@@ -4,7 +4,7 @@ const meetingSchema  = new Schema (
     {
         user_id : {type:String },
         meetingCode:{type:String , required :true},
-        date :{type : Date , default :Date.now , required : true}
+        date:{type: Date , default:Date.now , required : true}
     }
 )
 
@@ -12,4 +12,4 @@ const meetingSchema  = new Schema (
 const Meeting = mongoose.model("Meeting" , meetingSchema);
 
 // this type of export is used when we have to  export multiple thing from the file 
-export default {Meeting};
+export  {Meeting};

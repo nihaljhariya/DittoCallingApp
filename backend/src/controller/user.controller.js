@@ -2,7 +2,7 @@ import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 
 import httpStatus from "http-status";
-import Meeting from "../models/meeting.model.js";
+import {Meeting} from "../models/meeting.model.js";
 import crypto from "crypto";
 
 const login = async (req, res) => {
@@ -30,7 +30,7 @@ const login = async (req, res) => {
       return res.status(httpStatus.UNAUTHORIZED).json({message: "Invalid Username or Password"})
     }
   } catch (e) {
-    return res.status(500).json({ message: `Smething went wrong ${e}` });
+    return res.status(500).json({ message: `Something went wrong ${e}` });
   }
 };
 const register = async (req, res) => {
@@ -41,7 +41,7 @@ const register = async (req, res) => {
       // early return statements
       return res
         .status(httpStatus.FOUND)
-        .json({ message: "User already exists" });
+        .json({ message: " user already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);

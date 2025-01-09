@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 
 let connections = {};
 let messages = {};
-let timeOneline = {};
+let timeOnline = {};
 
 export const connectToSocket = (server) => {
   const io = new Server(server, {
@@ -22,7 +22,7 @@ export const connectToSocket = (server) => {
         connections[path] = [];
       }
       connections[path].push(socket.id);
-      timeOneline[socket.id] = new Date();
+      timeOnline[socket.id] = new Date();
 
       // connections[path].forEach(elem =>{
 
@@ -79,7 +79,7 @@ export const connectToSocket = (server) => {
     });
 
     socket.on("disconnect", () => {
-      var diffTime = Math.abs(timeOneline[socket.id] - new Date());
+      var diffTime = Math.abs(timeOnline[socket.id] - new Date());
 
       var key;
 
