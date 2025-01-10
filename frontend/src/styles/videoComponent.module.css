@@ -30,7 +30,7 @@
     gap: 10px;
 }
 
-.conferenceView > video {
+.conferenceView  video {
     width: 20vw;
     height: 15vh;
     min-width: 30vw;

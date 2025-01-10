@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const withAuth = (wrappedComponent) =>{
-    const AuthComponent = (prop)=>{
+    const AuthComponent = (props)=>{
         const router = useNavigate();
 
         const isAuthenticate = ()=>{
@@ -16,7 +16,7 @@ const withAuth = (wrappedComponent) =>{
                 router("/auth")
             }
         } , [])
-        return <wrappedComponent {...prop}/>
+        return <wrappedComponent {...props}/>
     }
     return AuthComponent;
 

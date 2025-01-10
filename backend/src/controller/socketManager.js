@@ -15,7 +15,6 @@ export const connectToSocket = (server) => {
   });
 
   io.on("connection", (socket) => {
-
     console.log("Bhagvaan ji Connect krva do plzz....");
     socket.on("join-call", (path) => {
       if (connections[path] === undefined) {
@@ -24,10 +23,7 @@ export const connectToSocket = (server) => {
       connections[path].push(socket.id);
       timeOnline[socket.id] = new Date();
 
-      // connections[path].forEach(elem =>{
-
-      // })
-
+   
       for (let a = 0; a < connections[path].length; a++) {
         io.to(connections[path][a]).emit(
           "user-joined",

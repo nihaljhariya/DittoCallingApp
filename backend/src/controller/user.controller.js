@@ -1,5 +1,6 @@
 import { User } from "../models/user.model.js";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs"
+
 
 import httpStatus from "http-status";
 import {Meeting} from "../models/meeting.model.js";
@@ -59,6 +60,8 @@ const register = async (req, res) => {
   }
   
 };
+
+
 const getUserHistory = async (req,res)=>{
   const {token}= req.query;
   try{

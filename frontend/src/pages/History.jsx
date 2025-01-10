@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
-
+import Navbar2 from './Navbar2';
 import { IconButton } from '@mui/material';
 export default function History() {
 
@@ -47,6 +47,7 @@ export default function History() {
             <IconButton onClick={() => {
                 routeTo("/home")
             }}>
+                <Navbar2/>
                 <HomeIcon />
             </IconButton >
             {
