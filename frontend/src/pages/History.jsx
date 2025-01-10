@@ -7,13 +7,15 @@ import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 import Navbar2 from './Navbar2';
 import { IconButton } from '@mui/material';
+import { Snackbar } from '@mui/material';
 export default function History() {
 
 
     const { getHistoryOfUser } = useContext(AuthContext);
 
     const [meetings, setMeetings] = useState([])
-
+ const [message, setMessage] = React.useState();
+  const [open, setOpen] = React.useState(false)
 
     const routeTo = useNavigate();
 
@@ -23,6 +25,12 @@ export default function History() {
                 const history = await getHistoryOfUser();
                 setMeetings(history);
             } catch {
+                  <Snackbar
+                
+                                open={open}
+                                autoHideDuration={4000}
+                                message={message}
+                            />
                 // IMPLEMENT SNACKBAR
             }
         }
@@ -44,23 +52,21 @@ export default function History() {
     return (
         <div>
 
-            <IconButton onClick={() => {
-                routeTo("/home")
-            }}>
-                <Navbar2/>
-                <HomeIcon />
-            </IconButton >
+                {/* <div className='mb-3'><Navbar2/></div> */}
+                
+               
+            
             {
                 (meetings.length !== 0) ? meetings.map((e, i) => {
                     return (
 
                         <>
+           <div style={{marginBottom:"5rem"}}><Navbar2/></div>
+                       <div>
+                            <Card style={{marginBottom:"4rem"}} key={i} variant="outlined">
 
 
-                            <Card key={i} variant="outlined">
-
-
-                                <CardContent>
+                                <CardContent >
                                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                         Code: {e.meetingCode}
                                     </Typography>
@@ -74,7 +80,7 @@ export default function History() {
 
                             </Card>
 
-
+                            </div>
                         </>
                     )
                 }) : <></>
